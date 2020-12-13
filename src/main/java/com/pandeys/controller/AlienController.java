@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.pandeys.dao.AlienDAO;
 import com.pandeys.dao.AlienJpaDAO;
 import com.pandeys.model.Alien;
 
@@ -17,26 +16,15 @@ import com.pandeys.model.Alien;
 public class AlienController {
 	
 	@Autowired
-	private AlienDAO alienDAO;
-	
-	@Autowired
 	private AlienJpaDAO alienJpaDao;
 	
-	/*
-	 * This method will return all the Alien objects from the database
-	 */
-	@RequestMapping("/aliens")
+	@RequestMapping(path = "/aliens")
 	@ResponseBody
 	public List<Alien> getAllAliens() {
 		return alienJpaDao.findAll();
 	}
 	
-	/*
-	 * This method will return all the Alien objects which have the aid as given in path parameter.
-	 * One object will be returned at the time
-	 * Response will be in string format
-	 */
-	@RequestMapping("/alien/{aid}")
+	@RequestMapping(path = "/alien/{aid}")
 	@ResponseBody
 	public Optional<Alien> getAlienById(@PathVariable("aid") Integer alienId) {
 		return alienJpaDao.findById(alienId);

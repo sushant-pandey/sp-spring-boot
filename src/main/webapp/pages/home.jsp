@@ -10,7 +10,5 @@
 This is the home page i wanted to see
 <br>
 This name coming from session attribute :  ${sessionName}
-<br>
-This name coming from model attribute :  ${modelName}
 </body>
 </html>

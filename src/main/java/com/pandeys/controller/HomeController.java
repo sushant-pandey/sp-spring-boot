@@ -9,13 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pandeys.model.Alien;
+
 @Controller
 public class HomeController {
 
 	@RequestMapping("/home")
-	public ModelAndView getHomePage(@RequestParam("name") String name) {
+	public ModelAndView getHomePage(Alien alien) {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("modelViewParam", name);
+		mv.addObject("alien", alien);
 		mv.setViewName("home");
 		return mv;
 	}

@@ -7,8 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-This is the home page i wanted to see
+Alien details are displayed below
 <br>
-This name coming from model and view attribute :  ${modelViewParam}
+Alien Name ; ${alien.aName}
+<br>
+Alien ID : ${alien.aid}
+<br>
+Alien Language : ${alien.lang}
 </body>
 </html>

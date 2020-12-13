@@ -1,9 +1,26 @@
 package com.pandeys.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Alien {
+	
+	@Id
 	private int aid;
 	private String aName;
 	private String lang;
+	
+	public Alien() {
+		super();
+	}
+	
+	public Alien(int aid, String aName, String lang) {
+		super();
+		this.aid = aid;
+		this.aName = aName;
+		this.lang = lang;
+	}
 	public int getAid() {
 		return aid;
 	}

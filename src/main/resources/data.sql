@@ -1,0 +1,1 @@
+insert into Alien values (101, 'Alien001', 'Language001');

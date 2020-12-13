@@ -9,6 +9,6 @@
 <body>
 This is the home page i wanted to see
 <br>
-This name coming from session attribute :  ${sessionName}
+This name coming from model and view attribute :  ${modelViewParam}
 </body>
 </html>

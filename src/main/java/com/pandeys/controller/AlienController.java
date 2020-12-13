@@ -1,5 +1,8 @@
 package com.pandeys.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -7,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pandeys.dao.AlienDAO;
+import com.pandeys.dao.AlienJpaDAO;
+import com.pandeys.model.Alien;
 
 @Controller
 public class AlienController {
@@ -14,13 +19,16 @@ public class AlienController {
 	@Autowired
 	private AlienDAO alienDAO;
 	
+	@Autowired
+	private AlienJpaDAO alienJpaDao;
+	
 	/*
 	 * This method will return all the Alien objects from the database
 	 */
 	@RequestMapping("/aliens")
 	@ResponseBody
-	public String getAllAliens() {
-		return alienDAO.findAll().toString();
+	public List<Alien> getAllAliens() {
+		return alienJpaDao.findAll();
 	}
 	
 	/*
@@ -30,7 +38,7 @@ public class AlienController {
 	 */
 	@RequestMapping("/alien/{aid}")
 	@ResponseBody
-	public String getAlienById(@PathVariable("aid") Integer alienId) {
-		return alienDAO.findById(alienId).toString();
+	public Optional<Alien> getAlienById(@PathVariable("aid") Integer alienId) {
+		return alienJpaDao.findById(alienId);
 	}
 }

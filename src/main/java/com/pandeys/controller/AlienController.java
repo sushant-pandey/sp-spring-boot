@@ -18,37 +18,37 @@ import com.pandeys.model.Alien;
 
 @RestController
 public class AlienController {
-	
-	@Autowired
-	private AlienJpaDAO alienJpaDao;
-	
-	@GetMapping(path = "/aliens")
-	@ResponseBody
-	public List<Alien> getAllAliens() {
-		return alienJpaDao.findAll();
-	}
-	
-	@PostMapping(path = "/alien", consumes = {"application/json"})
-	@ResponseBody
-	public Alien addAlien(@RequestBody Alien alien) {
-		alienJpaDao.save(alien);
-		return alien;
-	}
-	
-	@DeleteMapping(path = "/alien/{aid}")
-	public String deleteAlien(@PathVariable Integer aid) {
-		alienJpaDao.deleteById(aid);
-		return "Alien deleted";
-	}
-	
-	@PutMapping(path = "/alien", consumes = {"application/json"})
-	public Alien addOrUpdateAlien(@RequestBody Alien alien) {
-		return alienJpaDao.save(alien);
-	}
-	
-	@GetMapping(path = "/alien/{aid}")
-	@ResponseBody
-	public Optional<Alien> getAlienById(@PathVariable("aid") Integer alienId) {
-		return alienJpaDao.findById(alienId);
-	}
+//	
+//	@Autowired
+//	private AlienJpaDAO alienJpaDao;
+//	
+//	@GetMapping(path = "/aliens")
+//	@ResponseBody
+//	public List<Alien> getAllAliens() {
+//		return alienJpaDao.findAll();
+//	}
+//	
+//	@PostMapping(path = "/alien", consumes = {"application/json"})
+//	@ResponseBody
+//	public Alien addAlien(@RequestBody Alien alien) {
+//		alienJpaDao.save(alien);
+//		return alien;
+//	}
+//	
+//	@DeleteMapping(path = "/alien/{aid}")
+//	public String deleteAlien(@PathVariable Integer aid) {
+//		alienJpaDao.deleteById(aid);
+//		return "Alien deleted";
+//	}
+//	
+//	@PutMapping(path = "/alien", consumes = {"application/json"})
+//	public Alien addOrUpdateAlien(@RequestBody Alien alien) {
+//		return alienJpaDao.save(alien);
+//	}
+//	
+//	@GetMapping(path = "/alien/{aid}")
+//	@ResponseBody
+//	public Optional<Alien> getAlienById(@PathVariable("aid") Integer alienId) {
+//		return alienJpaDao.findById(alienId);
+//	}
 }
